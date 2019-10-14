@@ -1,12 +1,9 @@
-//Klassen undervisningstimer erklæres
-class undervisningstimer {
-    constructor(titel, lokale, tid, varighed, deltagere, underviser) {
-        this.titel = titel;
-        this.lokale = lokale;
-        this.tid = tid;
-        this.varighed = varighed;
-        this.deltagere = deltagere;
-        this.underviser = underviser;
-    }
+function secretFunction(num) {
+
+    if (num <= 1) return 1;
+
+    return secretFunction(num-1) + secretFunction(num-2);
+
 }
 
+secretFunction(5);
