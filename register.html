@@ -1,59 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
 <body>
-
 <ul>
-
-<li><a href="index.html">Log ind</a></li>
-
+<li><a
+        href="index.html">Log ind</a></li>
 </ul>
-
 <h1>Opret bruger</h1>
 
-<form action="#">
-<br>
-      <input id="name" type="text" placeholder="Navn" autocomplete="new-username" required/>
+    <br>
+    <input
+            id="name"
+            type="text"
+            placeholder="Navn"
+            autocomplete="new-username"
+            required
+    />
     <br>
     <br>
-      <input id="birthYear" type="number" placeholder="Fødselsår" autocomplete="off" required/>
+      <input
+              id="birthYear"
+              type="number"
+              placeholder="Fødselsår"
+              autocomplete="off"
+              required
+      />
     <br>
-<br>Køn<br>
+    <br>Køn<br>
     <br>
-      <input  type="radio" name="gender" class="gender" value="Kvinde"/>Kvinde
-    <br>
-    <br>
-      <input  type="radio" name="gender" class="gender" value="Mand"/>Mand
-    <br>
-    <br>
-    <input  type="radio" name="gender" class="gender" value="Andet"/>Andet
-    <br>
-    <br>
-
-      <input id="phoneNumber" type="number" placeholder="Tlf nummer" autocomplete="off" required/>
-    <br>
-    <br>
-      <input id="email" type="text" placeholder="Email" autocomplete="new-email" required/>
+      <input
+              type="radio"
+              name="gender"
+              class="gender"
+              value="Kvinde"
+      />Kvinde
     <br>
     <br>
+      <input
+              type="radio"
+              name="gender"
+              class="gender"
+              value="Mand"
+      />Mand
     <br>
-    <input id="user" type="text" placeholder="Bruger" autocomplete="new-user"required/>
+    <br>
+    <input
+            type="radio"
+            name="gender"
+            class="gender"
+            value="Andet"
+    />Andet
     <br>
     <br>
-
-    <input id="password" type="text" placeholder="Adgangskode" autocomplete="new-password"required/>
+      <input
+              id="phoneNumber"
+              type="number"
+              placeholder="Tlf nummer"
+              autocomplete="off"
+              required/>
     <br>
     <br>
-
-      <input id="registration_btn" type="submit" value="Register" onClick="createUser()"/>
+      <input
+              id="email"
+              type="text"
+              placeholder="Email"
+              autocomplete="new-email"
+              required/>
+    <br>
+    <br>
+    <br>
+    <input
+            id="user"
+            type="text"
+            placeholder="Bruger"
+            autocomplete="new-user"
+            required/>
+    <br>
+    <br>
+    <input
+            id="password"
+            type="text"
+            placeholder="Adgangskode"
+            autocomplete="new-password"
+            required
+    />
+    <br>
+    <br>
+      <button
+              id="registration_btn"
+              value="Register"
+              onClick="createUser()"
+      >Register</button>
     <br>
 
     <script src="classes/User.js"></script>
-
-</form>
 
 </body>
 </html>

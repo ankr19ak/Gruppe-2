@@ -8,16 +8,17 @@ class User {
 
     allUsers = [];
     function createUser() {
-        if (checkAtSign() === true) {
-            let user = new User(document.getElementById('user').value, document.getElementById('password').value);
-
+            let user = new User(
+                document.getElementById('user').value,
+                document.getElementById('password').value
+            );
             allUsers.push(user);
             console.log(allUsers);
-
-        }
     }
+
 function storeLogin() {
     localStorage.setItem('username', username.value);
+    localStorage.setItem('password', password.value);
     localStorage.setItem('password', password.value);
     alert('New user has been created.');
 }
@@ -64,7 +65,7 @@ function checkLogin() {
 }
 
 function checkAtSign(){
-        if(document.getElementById('email').includes("@")) {
+        if(document.getElementById('email').value.includes("@")) {
             return true;
     }
         else alert("This doesn't look like an email");
