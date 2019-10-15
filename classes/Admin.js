@@ -9,3 +9,14 @@ class Admin {
     }
 }
 
+const username = "Admin";
+const password = 123;
+
+function checkAdminLogIn(){
+
+if (enteredName.value == username && enteredPass.value == password){
+    alert("Hello Admin! You are now logged in.");
+    window.location.href = "adminSite.html";
+}
+else alert("Wrong username or password.");
+    }

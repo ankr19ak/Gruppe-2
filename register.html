@@ -16,32 +16,35 @@
 
 <form action="#">
 <br>
-      <input id="name" type="text" placeholder="Navn" autocomplete="new-username"/>
+      <input id="name" type="text" placeholder="Navn" autocomplete="new-username" required/>
     <br>
     <br>
-      <input id="birthYear" type="number" placeholder="Fødselsår" autocomplete="off"/>
+      <input id="birthYear" type="number" placeholder="Fødselsår" autocomplete="off" required/>
     <br>
 <br>Køn<br>
     <br>
-      <input  type="radio" class="gender" value="Kvinde"/>Kvinde
+      <input  type="radio" name="gender" class="gender" value="Kvinde"/>Kvinde
     <br>
     <br>
-      <input  type="radio" class="gender" value="Mand"/>Mand
+      <input  type="radio" name="gender" class="gender" value="Mand"/>Mand
     <br>
     <br>
-
-      <input id="phoneNumber" type="number" placeholder="Tlf nummer" autocomplete="off"/>
-    <br>
-    <br>
-      <input id="email" type="text" placeholder="Email" autocomplete="new-email"/>
-    <br>
-    <br>
-    <br>
-    <input id="user" type="text" placeholder="Bruger" autocomplete="new-user"/>
+    <input  type="radio" name="gender" class="gender" value="Andet"/>Andet
     <br>
     <br>
 
-    <input id="password" type="text" placeholder="Adgangskode" autocomplete="new-password"/>
+      <input id="phoneNumber" type="number" placeholder="Tlf nummer" autocomplete="off" required/>
+    <br>
+    <br>
+      <input id="email" type="text" placeholder="Email" autocomplete="new-email" required/>
+    <br>
+    <br>
+    <br>
+    <input id="user" type="text" placeholder="Bruger" autocomplete="new-user"required/>
+    <br>
+    <br>
+
+    <input id="password" type="text" placeholder="Adgangskode" autocomplete="new-password"required/>
     <br>
     <br>
 
