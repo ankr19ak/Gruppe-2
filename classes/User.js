@@ -8,16 +8,21 @@ class User {
 
     allUsers = [];
     function createUser() {
-        if (checkAtSign() === true) {
-            let user = new User(document.getElementById('user').value, document.getElementById('password').value);
-
+        if (checkAtSign() === true
+            && checkPassNum() === true
+            && checkNumberLength() === true
+        ){
+            let user = new User(
+                document.getElementById('user').value,
+                document.getElementById('password').value
+            );
             allUsers.push(user);
             console.log(allUsers);
-
         }
     }
 function storeLogin() {
     localStorage.setItem('username', username.value);
+    localStorage.setItem('password', password.value);
     localStorage.setItem('password', password.value);
     alert('New user has been created.');
 }
@@ -64,9 +69,26 @@ function checkLogin() {
 }
 
 function checkAtSign(){
-        if(document.getElementById('email').includes("@")) {
+        if(document.getElementById('email').value.includes("@")) {
             return true;
     }
         else alert("This doesn't look like an email");
             return false;
+}
+
+// En funktion som tjekker om password er mindst 6 cifre
+function checkPassNum() {
+    if(document.getElementById('password').value.length >= 6) {
+        return true;
+    }
+    else alert("Your password is too short");
+    return false;
+}
+// En funktion som tjekker om telefon nummeret er 8 cifre
+function checkNumberLength() {
+    if(document.getElementById('phoneNumber').value.length === 8) {
+        return true;
+    }
+    else alert("Not right phone number")
+    return false;
 }
