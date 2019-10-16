@@ -1,12 +1,12 @@
-//klassen kunde erklæres
+// En subklasse af User-klassen
 class Customer {
-    constructor(username, password, name, birthyear, sex, phonenumber, email) {
+    constructor(username, password, name, birthYear, gender, phoneNumber,email) {
         this.username = username;
         this.password = password;
         this.name = name;
-        this.bithyear = birthyear;
-        this.sex = sex;
-        this.phonenumber = phonenumber;
+        this.birthYear = birthYear;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 }
