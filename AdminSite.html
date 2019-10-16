@@ -2,9 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+
+        <h1> Opret undervisningstimer</h1>
+
 </head>
 <body>
+
+<form
+<text>Undervisningstitel:</text>
+
+    <input type="text" id="title" value="" placeholder="Undervisningstitel">
+
+<br>
+
+     Tid og sted:
+
+    <input type="text" id="location" value="" placeholder="Sted">
+
+    <select>
+        <option value=""  id="time" selected="selected">-Vælg tidspunkt-</option>
+        <option value="17.00">17.00</option>
+        <option value="17.30">17.30</option>
+        <option value="18.00">18.00</option>
+        <option value="18.30">18.30</option>
+        <option value="19.00">19.00</option>
+        <option value="19.30">19.30</option><
+        <option value="20.00">20.00</option>
+        <option value="20.30">20.30</option>
+        <option value="21.00">21.00</option>
+
+
+    </select>
+
+<br>
+
+    Lokale:
+<input type="text" id="room" value="" placeholder="Lokale">
+
+<br>
+    Underviser:
+
+<input type="text" id="teacher" value="" placeholder="Underviser">
+
+<br>
+<br>
+    Varighed:
+<select>
+    <option value=""  id="duration" selected="selected">-Antal timer-</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+
+</select>
+
+<select>
+    <option value="" id="" selected="selected">-Antal minutter-</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="25">25</option>
+    <option value="30">30</option>
+    <option value="35">35</option>
+    <option value="40">40</option>
+    <option value="45">45</option>
+    <option value="50">50</option>
+    <option value="55">55</option>
+
+</select>
+
+<br>
+<br>
+
+<input id="createClass_btn" type="submit" value="Opret undervisningstime" onClick="createDancingClass()"/>
+
+
+<br>
+</form>
+
+<script src="classes/DancingClass.js"></script>
 
 </body>
 </html>
