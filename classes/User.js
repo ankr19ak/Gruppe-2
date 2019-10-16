@@ -9,6 +9,7 @@ class User {
     unpackUsers();
     storeUsers();
 
+    // Opretter og gemmer en ny User i et array, som derefter sendes til localStorage, hvis de givne parametre overholdes
     function createUser() {
         unpackUsers();
         if (checkAtSign()
@@ -29,6 +30,15 @@ class User {
         }
     }
 
+// Logger brugeren ind i systemet
+function login(){
+    if(checkUserLogin()){
+        alert("You're now logged in");
+    } else {
+        alert("Wong Username or Password");
+    }
+}
+
 // Gemmer alle brugere som et array i localStorage
 function storeUsers() {
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
@@ -41,36 +51,6 @@ function unpackUsers() {
         } else {
             allUsers = JSON.parse(localStorage.getItem("allUsers"));
         }
-}
-
-function checkLogin() {
-    checkLogin();
-    {
-// Stored data from the registration form
-        var storedName = localStorage.getItem('username');
-        var storedPass = localStorage.getItem('password');
-        // Stored data from the registration form
-        var storedName = localStorage.getItem('username');
-        var storedPass = localStorage.getItem('password');
-// Entered data in the login form
-        var enteredName = document.getElementById('enteredName');
-        var enteredPass = document.getElementById('enteredPass');
-        // Entered data in the login form
-        var enteredName = document.getElementById('enteredName');
-        var enteredPass = document.getElementById('enteredPass');
-// Check if stored data from registration form is equal to entered data from login form
-        if (enteredName.value == storedName && enteredPass.value == storedPass) {
-            alert('You are logged in.');
-        } else {
-            alert('Error. Wrong login.');
-            // Check if stored data from registration form is equal to entered data from login form
-            if (enteredName.value == storedName && enteredPass.value == storedPass) {
-                alert('You are logged in.');
-            } else {
-                alert('Error. Wrong login.');
-            }
-        }
-    }
 }
 
 // Tjekker om email-input indeholder et @ og dermed ligner en email
@@ -97,6 +77,18 @@ function checkNumberLength() {
     else alert("Not right phone number");
 }
 
+// Tjekker om Username allerede er i brug
 function checkAvailability(){
         return !allUsers.some(user => user.username == document.getElementById("user").value);
+}
+
+// Tjekker om det givne Username og Password stemmer overens med DB'en
+function checkUserLogin() {
+    unpackUsers();
+    for (var n = 0; n <= allUsers.length - 1; n++) {
+        if(allUsers[n].username === document.getElementById("enteredName").value && allUsers[n].password === document.getElementById("enteredPass").value){
+            return true;
+        }
+    }
+    storeUsers();
 }
