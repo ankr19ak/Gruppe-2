@@ -6,36 +6,41 @@ class User {
     }
 }
 
-    allUsers = [];
+    unpackUsers();
+    storeUsers();
+
     function createUser() {
-        if (checkAtSign() === true
-            && checkPassNum() === true
-            && checkNumberLength() === true
+        unpackUsers();
+        if (checkAtSign()
+            && checkPassNum()
+            && checkNumberLength()
+            && checkAvailability()
         ){
             let user = new User(
                 document.getElementById('user').value,
                 document.getElementById('password').value
             );
             allUsers.push(user);
-            console.log(allUsers);
+            storeUsers();
+            console.log(localStorage);
+            alert('New user has been created.');
+        } else {
+            alert("Username is already taken")
         }
     }
-function storeLogin() {
-    localStorage.setItem('username', username.value);
-    localStorage.setItem('password', password.value);
-    localStorage.setItem('password', password.value);
-    alert('New user has been created.');
+
+// Gemmer alle brugere som et array i localStorage
+function storeUsers() {
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
 }
 
-// Function to list user in localStorage
-function showUser() {
-console.log('Show user stored in localStorage.');
-console.log(localStorage);
-}
-
-function showUser() {
-    console.log('Show user stored in localStorage.');
-    console.log(localStorage);
+// Henter alle brugere som et array fra localStorage
+function unpackUsers() {
+        if(JSON.parse(localStorage.getItem("allUsers") === null)){
+            allUsers = [];
+        } else {
+            allUsers = JSON.parse(localStorage.getItem("allUsers"));
+        }
 }
 
 function checkLogin() {
@@ -68,12 +73,12 @@ function checkLogin() {
     }
 }
 
+// Tjekker om email-input indeholder et @ og dermed ligner en email
 function checkAtSign(){
         if(document.getElementById('email').value.includes("@")) {
             return true;
     }
         else alert("This doesn't look like an email");
-            return false;
 }
 
 // En funktion som tjekker om password er mindst 6 cifre
@@ -82,13 +87,16 @@ function checkPassNum() {
         return true;
     }
     else alert("Your password is too short");
-    return false;
 }
+
 // En funktion som tjekker om telefon nummeret er 8 cifre
 function checkNumberLength() {
     if(document.getElementById('phoneNumber').value.length === 8) {
         return true;
     }
-    else alert("Not right phone number")
-    return false;
+    else alert("Not right phone number");
+}
+
+function checkAvailability(){
+        return !allUsers.some(user => user.username == document.getElementById("user").value);
 }
