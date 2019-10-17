@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<form
+<form name="createClass" onsubmit="return createDancingClass()" method="get">
+
 <text>Undervisningstitel:</text>
 
     <input
@@ -18,7 +19,7 @@
             placeholder="Undervisningstitel"
 
 <br>
-
+<br>
      Tid og sted:
 
     <input
@@ -47,7 +48,7 @@
     </select>
 
 <br>
-
+<br>
     Lokale:
 <input
         type="text"
@@ -56,6 +57,7 @@
         placeholder="Lokale">
 
 <br>
+    <br>
     Underviser:
 
 <input
@@ -95,16 +97,15 @@
 <br>
 <br>
 
-<input
+<button
         id="createClass_btn"
         type="submit"
         value="Opret undervisningstime"
-        onClick="createDancingClass()"/>
+        onClick="createDancingClass()">Create Class</button>
 
 
 <br>
 </form>
-
 <script src="classes/DancingClass.js"></script>
 
 </body>

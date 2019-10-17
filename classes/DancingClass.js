@@ -19,6 +19,7 @@ function createDancingClass(){
         document.getElementById("duration").value
     );
     allClasses.push(dancingClass);
+    storeClass();
     console.log(allClasses);
 }
 
@@ -35,4 +36,6 @@ function showClass(){
     console.log("Show new class stored in localStorage");
     console.log(localStorage);
 }
+
+
 
