@@ -10,7 +10,7 @@ class DancingClass {
     }
 }
 
-//Laver en array af ny klasser der bliver oprettet og henter title, location, room, teacher og duration vha. .getElementById.
+//Laver en array af ny klasser der bliver oprettet og henter title, location, room, teacher og durationtime og durationhours vha. .getElementById.
 allClasses = [
     {
         title: "Undervisningstime1",
@@ -123,5 +123,5 @@ function checkDancingClassDurationMinutes() {
     else alert("Please select duration minutes");
 }
 
-//test
+
 
