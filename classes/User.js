@@ -110,7 +110,7 @@ function getUserGender() {
         var genderButtons = document.getElementsByClassName("gender");
         var userGender = "";
 
-        for(n=0; n <= genderButtons.length - 1; n++){
+        for(n = 0; n <= genderButtons.length - 1; n++){
             if(genderButtons[n].checked){
                 userGender = genderButtons[n].value;
             }

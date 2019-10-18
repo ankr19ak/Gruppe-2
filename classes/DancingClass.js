@@ -51,6 +51,7 @@ allClasses = [
         participants: []
     }
 ];
+
 function createDancingClass() {
     if (checkDancingClassName()
         && checkDancingClassLocation()
@@ -78,7 +79,6 @@ function createDancingClass() {
 
 function showAllClasses() {
     for(var n = 0; n < allClasses.length; n++){
-
         var header = document.createElement("h2");
         var headerText = document.createTextNode(allClasses[n].title);
         header.append(headerText);
