@@ -1,8 +1,13 @@
 //En klasse med username og password
 class User {
-    constructor(username, password) {
+    constructor(username, password, name, birthYear, gender, phoneNumber, email) {
         this.username = username;
         this.password = password;
+        this.name = name;
+        this.birthYear = birthYear;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 }
 
@@ -18,13 +23,20 @@ class User {
             && checkAvailability()
         ){
             let user = new User(
-                document.getElementById('user').value,
-                document.getElementById('password').value
+                document.getElementById("username").value,
+                document.getElementById("password").value,
+                document.getElementById("name").value,
+                document.getElementById("birthYear").value,
+                getUserGender(),
+                document.getElementById("phoneNumber").value,
+                document.getElementById("email").value
+
+
             );
             allUsers.push(user);
             storeUsers();
             console.log(localStorage);
-            alert('New user has been created.');
+            alert("New user has been created.");
         } else {
             alert("Username is already taken")
         }
@@ -55,7 +67,7 @@ function unpackUsers() {
 
 // Tjekker om email-input indeholder et @ og dermed ligner en email
 function checkAtSign(){
-        if(document.getElementById('email').value.includes("@")) {
+        if(document.getElementById("email").value.includes("@")) {
             return true;
     }
         else alert("This doesn't look like an email");
@@ -63,7 +75,7 @@ function checkAtSign(){
 
 // En funktion som tjekker om password er mindst 6 cifre
 function checkPassNum() {
-    if(document.getElementById('password').value.length >= 6) {
+    if(document.getElementById("password").value.length >= 6) {
         return true;
     }
     else alert("Your password is too short");
@@ -71,7 +83,7 @@ function checkPassNum() {
 
 // En funktion som tjekker om telefon nummeret er 8 cifre
 function checkNumberLength() {
-    if(document.getElementById('phoneNumber').value.length === 8) {
+    if(document.getElementById("phoneNumber").value.length === 8) {
         return true;
     }
     else alert("Not right phone number");
@@ -79,7 +91,7 @@ function checkNumberLength() {
 
 // Tjekker om Username allerede er i brug
 function checkAvailability(){
-        return !allUsers.some(user => user.username == document.getElementById("user").value);
+        return !allUsers.some(user => user.username == document.getElementById("username").value);
 }
 
 // Tjekker om det givne Username og Password stemmer overens med DB'en
@@ -91,4 +103,17 @@ function checkUserLogin() {
         }
     }
     storeUsers();
+}
+
+// Finder radiobutton-værdien fra vores html dokument
+function getUserGender() {
+        var genderButtons = document.getElementsByClassName("gender");
+        var userGender = "";
+
+        for(n=0; n <= genderButtons.length - 1; n++){
+            if(genderButtons[n].checked){
+                userGender = genderButtons[n].value;
+            }
+        }
+        return userGender;
 }
