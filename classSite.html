@@ -3,62 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <h1 id="h1">Undervisningstimer</h1>
-
+    <br>
     <!--Skal have henvisning så den henter "title" fra js. filen.-->
-
-    <h2 id="h2">Undervisningstime 1</h2>
-    <script src="classes/DancingClass.js"></script>
     </head>
-<body id="body">
-
-<input>
-<br>
-
-<p
-        id="tidSted">
-
-</p>
-<br>
-<br>
-Lokale:
-<br>
-
-<br>
-Underviser:
-<br>
-
-<br>
-Varighed:
-<br>
-
-<br>
-Deltagere:
-<br>
-
-
-<script
-        type="text/javascript">
-
-        var text = ""
-        //var innerText = ""
-        for(var n = 0; n < allClasses.length; n++){
-            var para = document.createElement("p");
-            var node = document.createTextNode(allClasses[n].location).textContent;
-            para.appendChild(node);
-            //var node = allClasses[n].location
-
-            //text += node;
-            //console.log(node)
-            //document.getElementById("tidSted").innerHTML = text
-            //console.log (text[n])
-            /*for(i=0; text.length; i++){
-            innerText += text[i]
-                document.getElementById("tidSted").innerText = innerText
-              } */
-            //document.getElementById("h"+ n).innerHTML = "Undervisningstime " + n+2
-            //document.getElementById("tidSted").innerHTML = "Tid og Sted: " + allClasses[n].location
-        }
-</script>
+<body id="body" onload="showAllClasses()">
 </body>
+<script src="classes/DancingClass.js"></script>
 
 </html>
