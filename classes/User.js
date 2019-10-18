@@ -47,7 +47,7 @@ function login(){
     if(checkUserLogin()){
         alert("You're now logged in");
     } else {
-        alert("Wong Username or Password");
+        alert("Wrong Username or Password");
     }
 }
 

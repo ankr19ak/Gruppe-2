@@ -6,20 +6,42 @@
 </head>
 <body>
 
-
 <br>Log ind <br>
 <br>
-<input type="text" id="enteredName" value="" placeholder="Brugernavn"> <br>
-
+<input
+        type="text"
+        id="enteredName"
+        value=""
+        placeholder="Brugernavn"
+>
 <br>
-<input type="text" id="enteredPass" value="" placeholder="Adgangskode"> <br>
 <br>
-<input id="login_btn" type="submit" value="Login Customer" onClick="login()"/> <br>
-<input id="adminsLogin_btn" type="submit" value="Login Admin" onClick="checkAdminLogIn()"/>
-<br> <a href="register.html">Create User</a> <br>
-
-
-
+<input
+        type="text"
+        id="enteredPass"
+        value=""
+        placeholder="Adgangskode"
+>
+<br>
+<br>
+<input
+        id="adminsLogin_btn"
+        type="submit"
+        value="Login Admin"
+        onClick="adminLogin()"
+/>
+<input
+        id="login_btn"
+        type="submit"
+        value="Login Customer"
+        onClick="login()"
+/>
+<br>
+<a
+        href="register.html">
+    <button
+    >Create new user</button></a>
+<br>
 
 <script src="classes/Admin.js"></script>
 <script src="classes/Address.js"></script>
