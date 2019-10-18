@@ -53,4 +53,45 @@ function showClass(){
     console.log(localStorage);
 }
 
+// Funktion der tjekker om 'title' er skrevet
+function checkDancingClassName() {
+    if(document.getElementById('title').value.length === 0){
+        alert("Please enter title");
+    }
+}
+
+// Funktion der tjekker om 'location' er skrevet
+function checkDancingClassLocation() {
+    if(document.getElementById('location').value.length === 0){
+        alert("Please enter location");
+    }
+}
+
+// Funktion der tjekker om 'time' er valgt. Ved ikke om det virker!
+function checkDancingClassTime() {
+    if(document.getElementById('time').value === 0){
+        alert("Please select time");
+    }
+}
+
+// Funktion der tjekker om 'room' er skrevet
+function checkDancingClassRoom() {
+    if(document.getElementById('room').value.length === 0){
+        alert("Please enter room");
+    }
+}
+
+// Funktion der tjekker om 'taecher' er skrevet
+function checkDancingClassTeacher() {
+    if(document.getElementById('teacher').value.length === 0){
+        alert("Please enter teacher");
+    }
+}
+
+//Funktion der tjekker om 'duration' er valgt
+function checkDancingClassduration() {
+    if(document.getElementById('duration').value === 0){
+        alert("Please select duration");
+    }
+}
 
