@@ -61,11 +61,6 @@ function createDancingClass() {
     }
 }
 
-// Skriver en undervisningstime i html-filen
-function writeClass() {
-    
-}
-
 // Funktion der tjekker om 'title' er skrevet
 function checkDancingClassName() {
     if(document.getElementById('title').value.length > 0){
