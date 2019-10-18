@@ -1,11 +1,12 @@
 //Klassen undervisningstimer erklæres
 class DancingClass {
-    constructor(title, location, room, teacher, duration){
-        this.title="title";
-        this.location="location";
-        this.room="room";
-        this.teacher="teacher";
-        this.duration="duration";
+    constructor(title, location, room, teacher, durationHours, durationMinutes){
+        this.title = title;
+        this.location = location;
+        this.room = room;
+        this.teacher = teacher;
+        this.durationHours = durationHours;
+        this.durationMinutes = durationMinutes;
     }
 }
 
@@ -16,20 +17,23 @@ allClasses = [
         location: "Solbjerg Plads 15",
         room: 156,
         teacher: "Jan Jensen",
-        duration: 100
+        durationHours: 1,
+        durationMinutes: 30
     },
     {
         title: "Undervisningstime2",
         location: "Dalgas Have 3",
         room: 254,
         teacher: "Erik Eriksen",
-        duration: 45
+        durationHours: 0,
+        durationMinutes: 45
     },
     {
         title: "Undervisningtime3",
         location: "Peter Bangs Vej 20",
         room: 10,
-        duration: 200
+        durationHours: 2,
+        durationMinutes: 20
     }
 ];
 function createDancingClass() {
