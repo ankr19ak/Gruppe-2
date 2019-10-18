@@ -10,7 +10,7 @@ class DancingClass {
     }
 }
 
-//Laver en array af ny klasser der bliver oprettet og henter title, location, room, teacher og durationtime og durationhours vha. .getElementById.
+//Laver en array af ny klasser der bliver oprettet og henter title, location, room, teacher vha. .getElementById.
 allClasses = [
     {
         title: "Undervisningstime1",
@@ -61,10 +61,9 @@ function createDancingClass() {
     }
 }
 
-//Klasserne bliver vist i localstorage.
-function showClass(){
-    console.log("Show new class stored in localStorage");
-    console.log(localStorage);
+// Skriver en undervisningstime i html-filen
+function writeClass() {
+    
 }
 
 // Funktion der tjekker om 'title' er skrevet
@@ -122,6 +121,4 @@ function checkDancingClassDurationMinutes() {
     }
     else alert("Please select duration minutes");
 }
-
-
 
