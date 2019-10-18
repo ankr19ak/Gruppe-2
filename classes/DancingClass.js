@@ -61,10 +61,9 @@ function createDancingClass() {
     }
 }
 
-//Klasserne bliver vist i localstorage.
-function showClass(){
-    console.log("Show new class stored in localStorage");
-    console.log(localStorage);
+// Skriver en undervisningstime i html-filen
+function writeClass() {
+    
 }
 
 // Funktion der tjekker om 'title' er skrevet
