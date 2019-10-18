@@ -95,5 +95,4 @@ function checkDancingClassduration() {
     }
 }
 
-//test
 
