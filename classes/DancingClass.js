@@ -45,6 +45,7 @@ allClasses = [
         title: "Undervisningtime 3",
         location: "Peter Bangs Vej 20",
         room: 10,
+        teacher: "Peter Petersen",
         durationHours: 2,
         durationMinutes: 20,
         participants: []
