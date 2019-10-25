@@ -1,4 +1,4 @@
-//Klassen undervisningstimer erklæres
+//Klassen undervisningstimer erklæres via en constructor funktion
 class DancingClass {
     constructor(title, location, room, teacher, participants, durationHours, durationMinutes){
         this.title = title;
@@ -11,7 +11,7 @@ class DancingClass {
     }
 }
 
-//Laver en array af ny klasser der bliver oprettet og henter title, location, room, teacher vha. .getElementById.
+//Laver en array af ny klasser der bliver oprettet og henter title, location, room, teacher, duration hours samt duration minutes vha. .getElementById.
 allClasses = [
     {
         title: "Undervisningstime 1",
@@ -130,7 +130,7 @@ function checkDancingClassLocation() {
     else alert("Please enter location");
 }
 
-// Funktion der tjekker om 'time' er valgt. Ved ikke om det virker
+// Funktion der tjekker om 'time' er valgt.
 function checkDancingClassTime() {
     if(document.getElementById('time').selectedIndex > 0){
         return true;

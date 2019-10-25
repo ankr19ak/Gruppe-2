@@ -1,6 +1,6 @@
 
-//Opretter klasse med et string (admin). Derefter startes der en constructor, som tillader os at definere en type og
-//et set af metoder. Dette er lavet med udgangspunkt i eksemplet fra side 102 i "Eloquent Javascript"
+//Opretter klasse med et string (admin). Derefter startes der en constructor, som tillader os at definere en type og et set af metoder.
+//Dette er lavet med udgangspunkt i eksemplet fra side 102 i bogen "Eloquent Javascript"
 class Admin {
     constructor(username, password) {
         this.username = username;
@@ -14,13 +14,14 @@ var adminUsers = [
         password: "password123"
     }
     ];
-//Funktion der tjekker om administratorens login er indtastet korrekt
+//Funktion der tjekker om administratorens login er indtastet korrekt, hvilket sker via et if og if-else statement, hvortil der vises en alert-box.
+//Nedenstående stykke kodning er lavet ved hjælp af eksemplet på side 49, 50 og 51 i bogen "Eloquent Javascript" om recursion.
 function adminLogin() {
     if(checkAdminLogIn()){
         alert("Hello Admin! You are now logged in.");
         window.location.href = "adminSite.html";
     } else {
-        alert("Wrong username or password");
+        alert("Wrong admin username or password");
     }
 }
 //Tjekker i arrayet om admins username og password er korrekt indtastet

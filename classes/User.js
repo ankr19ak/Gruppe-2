@@ -42,7 +42,8 @@ class User {
         }
     }
 
-// Logger brugeren ind i systemet
+// Logger brugeren ind i systemet, hvis parametrene er opfyldt og alerter følgende: "You're now logged in". Hvis parametrene ikke er opfyldt alerter den følgende:
+//"Wrong Username or Password".
 function login(){
     if(checkUserLogin()){
         alert("You're now logged in");
@@ -73,9 +74,9 @@ function checkAtSign(){
         else alert("This doesn't look like an email");
 }
 
-// En funktion som tjekker om password er mindst 6 cifre
+// En funktion som tjekker om password er mindst 5 cifre
 function checkPassNum() {
-    if(document.getElementById("password").value.length >= 6) {
+    if(document.getElementById("password").value.length >= 5) {
         return true;
     }
     else alert("Your password is too short");
@@ -94,7 +95,7 @@ function checkAvailability(){
         return !allUsers.some(user => user.username == document.getElementById("username").value);
 }
 
-// Tjekker om det givne Username og Password stemmer overens med DB'en
+// Tjekker om det givne Username og Password stemmer overens med DB'en (databasen)
 function checkUserLogin() {
     unpackUsers();
     for (var n = 0; n <= allUsers.length - 1; n++) {
