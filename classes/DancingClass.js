@@ -114,6 +114,17 @@ function showAllClasses() {
     }
 }
 
+//Her gemmes alle dancingclasses som et array i det oprettede localStorage
+function storeDancingClasses() {
+    localStorage.setItem("allDancingClasses", JSON.stringify(allDancingClasses));
+
+//Der oprettes en funktion, der henter alle dancingclasses som et array fra local storage
+function unpackDancingClass() {
+    if(JSON.parse(localStorage.getItem("allDancingClasses") === null)){
+        allDancingClasses = [];
+        else{
+            allDancingClasses = JSON.parse(localStorage.getItem("allDancingClasses"));
+
 // Funktion der tjekker om 'title' er skrevet
 function checkDancingClassName() {
     if(document.getElementById('title').value.length > 0){
