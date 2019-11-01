@@ -12,47 +12,11 @@ class DancingClass {
 }
 
 //Laver en array af ny klasser der bliver oprettet og henter title, location, room, teacher, duration hours samt duration minutes vha. .getElementById.
-allClasses = [
-    {
-        title: "Undervisningstime 1",
-        location: "Solbjerg Plads 15",
-        room: 156,
-        teacher: "Jan Jensen",
-        durationHours: 1,
-        durationMinutes: 30,
-        participants: [
-            {
-                username: "AndreasWK",
-                password: "hej123",
-                name: "Andreas",
-                birthYear: 1997,
-                gender: "Male",
-                phoneNumber: 61795436,
-                email: "andreas@ersej.dk"
-            }
-            ]
-    },
-    {
-        title: "Undervisningstime 2",
-        location: "Dalgas Have 3",
-        room: 254,
-        teacher: "Erik Eriksen",
-        durationHours: 0,
-        durationMinutes: 45,
-        participants: []
-    },
-    {
-        title: "Undervisningtime 3",
-        location: "Peter Bangs Vej 20",
-        room: 10,
-        teacher: "Peter Petersen",
-        durationHours: 2,
-        durationMinutes: 20,
-        participants: []
-    }
-];
+unpackClasses();
+storeClasses()
 
 function createDancingClass() {
+    unpackClasses();
     if (checkDancingClassName()
         && checkDancingClassLocation()
         && checkDancingClassTime()
@@ -66,18 +30,21 @@ function createDancingClass() {
             document.getElementById("location").value,
             document.getElementById("room").value,
             document.getElementById("teacher").value,
+            [],
             document.getElementById("duration hours").value,
             document.getElementById("duration minutes").value
         );
 
         //Klasserne bliver pushet op og logget ind i consolen.
         allClasses.push(dancingClass);
+        storeClasses();
         alert('You have created a new class.');
         console.log(allClasses);
     }
 }
 
 function showAllClasses() {
+    unpackClasses();
     for(var n = 0; n < allClasses.length; n++){
         var header = document.createElement("h2");
         var headerText = document.createTextNode(allClasses[n].title);
@@ -112,18 +79,60 @@ function showAllClasses() {
         var lineBreak = document.createElement("br");
         document.getElementById("body").appendChild(lineBreak);
     }
+    storeClasses();
 }
 
 //Her gemmes alle dancingclasses som et array i det oprettede localStorage
-function storeDancingClasses() {
-    localStorage.setItem("allDancingClasses", JSON.stringify(allDancingClasses));
+function storeClasses() {
+    localStorage.setItem("allClasses", JSON.stringify(allClasses));
+}
 
 //Der oprettes en funktion, der henter alle dancingclasses som et array fra local storage
-function unpackDancingClass() {
-    if(JSON.parse(localStorage.getItem("allDancingClasses") === null)){
-        allDancingClasses = [];
-        else{
-            allDancingClasses = JSON.parse(localStorage.getItem("allDancingClasses"));
+function unpackClasses() {
+    if (JSON.parse(localStorage.getItem("allClasses") === null)) {
+        allClasses = [
+            {
+                title: "Undervisningstime 1",
+                location: "Solbjerg Plads 15",
+                room: 156,
+                teacher: "Jan Jensen",
+                durationHours: 1,
+                durationMinutes: 30,
+                participants: [
+                    {
+                        username: "AndreasWK",
+                        password: "hej123",
+                        name: "Andreas",
+                        birthYear: 1997,
+                        gender: "Male",
+                        phoneNumber: 61795436,
+                        email: "Emilie@dans.dk"
+                    }
+                ]
+            },
+            {
+                title: "Undervisningstime 2",
+                location: "Dalgas Have 3",
+                room: 254,
+                teacher: "Erik Eriksen",
+                durationHours: 0,
+                durationMinutes: 45,
+                participants: []
+            },
+            {
+                title: "Undervisningtime 3",
+                location: "Peter Bangs Vej 20",
+                room: 10,
+                teacher: "Peter Petersen",
+                durationHours: 2,
+                durationMinutes: 20,
+                participants: []
+            }
+        ];
+    } else {
+        allClasses = JSON.parse(localStorage.getItem("allClasses"));
+    }
+}
 
 // Funktion der tjekker om 'title' er skrevet
 function checkDancingClassName() {
