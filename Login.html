@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Title</title>
     <div style="" class="topnav">
-        <a class="active" href="LessonOverview.html">Overview</a>
+        <a href="LessonOverview.html">Overview</a>
         <a href="classSite.html">Classes</a>
-        <a href="Login.html">Login</a>
+        <a class="active" href="Login.html">Login</a>
         <a href="register.html">Register</a>
     </div>
-    <h1>Undervisningstime</h1>
 </head>
-
 <style>
     /* Add a black background color to the top navigation */
     .topnav {
@@ -40,17 +39,44 @@
         color: white;
     }
 </style>
-
-<br>
-
 <body>
 
-<a href=adminSite.html><button
->Snydeknappen</button></a>
+<br>Log ind <br>
+<br>
+<input
+        type="text"
+        id="enteredName"
+        value=""
+        placeholder="Brugernavn"
+>
+<br>
+<br>
+<input
+        type="text"
+        id="enteredPass"
+        value=""
+        placeholder="Adgangskode"
+>
+<br>
+<br>
+<input
+        id="adminsLogin_btn"
+        type="submit"
+        value="Login Admin"
+        onClick="adminLogin()"
+/>
+<input
+        id="login_btn"
+        type="submit"
+        value="Login Customer"
+        onClick="login()"
+/>
+<br>
+<br>
 
-<br>
-<input id="delete_btn" type="submit" value="Slet" onClick="deleteLesson()"/>
-<br>
+<script src="classes/Admin.js"></script>
+<script src="classes/Address.js"></script>
+<script src="classes/User.js"></script>
 
 </body>
 </html>
