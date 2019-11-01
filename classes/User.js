@@ -79,7 +79,7 @@ function checkPassNum() {
     if(document.getElementById("password").value.length >= 5) {
         return true;
     }
-    else alert("Your password is too short. It needs to be at least 8 digits.");
+    else alert("Your password is too short. It needs to be at least 5 digits.");
 }
 
 // En funktion som tjekker om telefon nummeret er 8 cifre
