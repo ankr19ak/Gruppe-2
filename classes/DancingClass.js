@@ -13,7 +13,7 @@ class DancingClass {
 
 //Laver en array af ny klasser der bliver oprettet og henter title, location, room, teacher, duration hours samt duration minutes vha. .getElementById.
 unpackClasses();
-storeClasses()
+storeClasses();
 
 function createDancingClass() {
     unpackClasses();
@@ -45,6 +45,7 @@ function createDancingClass() {
 
 function showAllClasses() {
     unpackClasses();
+
     for(var n = 0; n < allClasses.length; n++){
         var header = document.createElement("h2");
         var headerText = document.createTextNode(allClasses[n].title);
@@ -72,9 +73,22 @@ function showAllClasses() {
         document.getElementById("body").appendChild(paraDuration);
 
         var paraParticipants = document.createElement("P");
-        var textParticipants= document.createTextNode("Deltagere: " + allClasses[n].participants);
+        /*var textParticipants= document.createTextNode("Deltagere " + allClasses[n].participants);
+        paraParticipants.appendChild(textParticipants);
+        document.getElementById("body").appendChild(paraParticipants);*/
+
+        var text = "Deltagere: ";
+        for (var i=0; i < allClasses[n].participants.length; i++){
+            if(i+1 === allClasses[n].participants.length){
+                text += allClasses[n].participants[i].name;
+            } else {
+                text += allClasses[n].participants[i].name + ", ";
+            }
+        }
+        var textParticipants = document.createTextNode(text);
         paraParticipants.appendChild(textParticipants);
         document.getElementById("body").appendChild(paraParticipants);
+
 
         var lineBreak = document.createElement("br");
         document.getElementById("body").appendChild(lineBreak);
@@ -103,6 +117,15 @@ function unpackClasses() {
                         username: "AndreasWK",
                         password: "hej123",
                         name: "Andreas",
+                        birthYear: 1997,
+                        gender: "Male",
+                        phoneNumber: 61795436,
+                        email: "Emilie@dans.dk"
+                    },
+                    {
+                        username: "AndreasWK",
+                        password: "hej123",
+                        name: "Børge",
                         birthYear: 1997,
                         gender: "Male",
                         phoneNumber: 61795436,
@@ -189,4 +212,3 @@ function checkDancingClassDurationMinutes() {
     }
     else alert("Please select duration minutes");
 }
-

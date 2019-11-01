@@ -118,4 +118,3 @@ function getUserGender() {
         }
         return userGender;
 }
-
