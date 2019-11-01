@@ -38,7 +38,7 @@ class User {
             console.log(localStorage);
             alert("New user has been created.");
         } else {
-            alert("Username is already taken")
+            alert("Username is already taken.")
         }
     }
 
@@ -79,7 +79,7 @@ function checkPassNum() {
     if(document.getElementById("password").value.length >= 5) {
         return true;
     }
-    else alert("Your password is too short");
+    else alert("Your password is too short. It needs to be at least 8 digits.");
 }
 
 // En funktion som tjekker om telefon nummeret er 8 cifre
@@ -87,7 +87,7 @@ function checkNumberLength() {
     if(document.getElementById("phoneNumber").value.length === 8) {
         return true;
     }
-    else alert("Not right phone number");
+    else alert("Not a real phone number. Please try again.");
 }
 
 // Tjekker om Username allerede er i brug
