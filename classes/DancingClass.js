@@ -1,13 +1,13 @@
 //Klassen undervisningstimer erklæres via en constructor funktion
 class DancingClass {
-    constructor(title, location, room, teacher, participants, durationHours, durationMinutes){
+    constructor(title, location, room, teacher, durationHours, durationMinutes){
         this.title = title;
         this.location = location;
         this.room = room;
         this.teacher = teacher;
         this.durationHours = durationHours;
         this.durationMinutes = durationMinutes;
-        this.participants = participants;
+        this.participants = [];
     }
 }
 
@@ -30,9 +30,9 @@ function createDancingClass() {
             document.getElementById("location").value,
             document.getElementById("room").value,
             document.getElementById("teacher").value,
-            [],
             document.getElementById("duration hours").value,
-            document.getElementById("duration minutes").value
+            document.getElementById("duration minutes").value,
+            []
         );
 
         //Klasserne bliver pushet op og logget ind i consolen.
@@ -68,7 +68,7 @@ function showAllClasses() {
         document.getElementById("body").appendChild(paraTeacher);
 
         var paraDuration = document.createElement("P");
-        var textDuration = document.createTextNode("Varighed: " + allClasses[n].durationHours + " time(r) og " + allClasses[n].durationMinutes + " minutter");
+        var textDuration = document.createTextNode("Varighed: " + allClasses[n].durationHours + " time(r) og " + allClasses[n].durationMinutes + " minutte(r)");
         paraDuration.appendChild(textDuration);
         document.getElementById("body").appendChild(paraDuration);
 
