@@ -101,4 +101,4 @@ De enkelte elementer vi skal have med i projektet og hvad man skal kunne gøre i
   - Se antallet af tilmeldte kunder på de enkelte undervisningstimer
   
   ## UML-Diagram
-  ![Alt text](assets/Gruppeprojekt - UML-diagram OPDATERET.png?raw=true "Danseskole UML Class Diagram")
+  ![Alt text](assets/UML-Diagram.png?raw=true "Danseskole UML Class Diagram")
