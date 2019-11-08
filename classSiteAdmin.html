@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
     <div style="" class="topnav">
-        <a class="active" href="Login.html">Login</a>
-        <a href="register.html">Register</a>
+        <a href="AdminSite.html">Create classes</a>
+        <a class="active" href="classSiteAdmin.html">Classes</a>
     </div>
-</head>
+    <h1 id="h1">Undervisningstimer</h1>
+
+    <!--Skal have henvisning så den henter "title" fra js. filen.-->
+    </head>
+
 <style>
+    /* Her har vi lavet en navigationslinje/bar ved hjælp af eksemplet i denne kilde: https://www.w3schools.com/howto/howto_js_topnav.asp
     /* Add a black background color to the top navigation */
     .topnav {
         background-color: #4C4480;
@@ -37,43 +41,13 @@
         color: white;
     }
 </style>
+
+<br>
+
 <body>
 
-<br>Log ind <br>
-<br>
-<input
-        type="text"
-        id="enteredName"
-        value=""
-        placeholder="Brugernavn"
->
-<br>
-<br>
-<input
-        type="Password"
-        id="enteredPass"
-        value=""
-        placeholder="Adgangskode"
->
-<br>
-<br>
-<input
-        id="adminsLogin_btn"
-        type="submit"
-        value="Login Admin"
-        onClick="adminLogin()"
-/>
-<input
-        id="login_btn"
-        type="submit"
-        value="Login Customer"
-        onClick="login()"
-/>
-<br>
-<br>
-
-<script src="classes/Admin.js"></script>
-<script src="classes/User.js"></script>
-
+<body id="body" onload="showAllClasses()">
 </body>
+<script src="classes/DancingClass.js"></script>
+
 </html>
