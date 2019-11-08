@@ -7,7 +7,7 @@ class Admin {
         this.password = password;
     }
 }
-
+//Laver en variabel hvor der erklæres hvad admins username og password skal være.
 var adminUsers = [
     {
         username: "Admin",
@@ -19,6 +19,7 @@ var adminUsers = [
 function adminLogin() {
     if(checkAdminLogIn()){
         alert("Hello Admin! You are now logged in.");
+        storeLoggedInAdmin();
         window.location.href = "adminSite.html";
     } else {
         alert("Wrong admin username or password");
@@ -32,3 +33,18 @@ function checkAdminLogIn() {
         }
     }
 }
+//Gemmer adminUsers i sessionstorage. Vi kalder den "adminUsers" vha. stringify.
+function storeLoggedInAdmin(){
+ sessionStorage.setItem("loggedInAdmin", JSON.stringify(adminUsers[0]));
+}
+
+//Henter "adminUsers" fra sessionstorage vha. parse.
+function unpackLoggedInAdmin(){
+   var loggedInAdmin = JSON.parse(sessionStorage.getItem("loggedInAdmin"));
+}
+
+function logOutAdmin(){
+    sessionStorage.clear();
+    window.location.href = "Login.html";
+}
+

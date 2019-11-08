@@ -44,9 +44,11 @@ class User {
 
 // Logger brugeren ind i systemet, hvis parametrene er opfyldt og alerter følgende: "You're now logged in". Hvis parametrene ikke er opfyldt alerter den følgende:
 //"Wrong Username or Password".
-function login(){
+function userLogin(){
     if(checkUserLogin()){
         alert("You're now logged in");
+        storeLoggedInUser();
+        window.location.href = "MyPageUser.html";
     } else {
         alert("Wrong Username or Password");
     }
@@ -117,4 +119,26 @@ function getUserGender() {
             }
         }
         return userGender;
+}
+
+function storeLoggedInUser(){
+        unpackUsers();
+        var loggedInUser;
+        for(var n = 0; n<allUsers.length; n++){
+            if(document.getElementById("enteredName").value === allUsers[n].username) {
+                var loggedInUser = allUsers[n];
+            }
+        }
+
+        sessionStorage.setItem("loggedInUser",JSON.stringify(allUsers[0]));
+        storeUsers();
+}
+
+function unpackLoggedInUser(){
+        var loggedInUser=JSON.parse(sessionStorage.getItem("loggedInUser"));
+}
+
+function logOutUser(){
+    sessionStorage.clear();
+    window.location.href = "Login.html";
 }
