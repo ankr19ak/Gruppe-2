@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <div style="" class="topnav">
-        <a href="LessonOverview.html">Overview</a>
-        <a class="active" href="classSite.html">Classes</a>
-        <a href="Login.html">Login</a>
-        <a href="register.html">Register</a>
+        <a class="active" href="MyPageUser.html">My page</a>
+        <a href="classSiteUser.html">Classes</a>
     </div>
-    <h1 id="h1">Undervisningstimer</h1>
-
-    <!--Skal have henvisning så den henter "title" fra js. filen.-->
-    </head>
+    <h1>Undervisningstime</h1>
+</head>
 
 <style>
-    /* Her har vi lavet en navigationslinje/bar ved hjælp af eksemplet i denne kilde: https://www.w3schools.com/howto/howto_js_topnav.asp
     /* Add a black background color to the top navigation */
     .topnav {
         background-color: #4C4480;
@@ -48,8 +43,12 @@
 
 <body>
 
-<body id="body" onload="showAllClasses()">
-</body>
-<script src="classes/DancingClass.js"></script>
+<a href=adminSite.html><button
+>Snydeknappen</button></a>
 
+<br>
+<input id="delete_btn" type="submit" value="Slet" onClick="deleteLesson()"/>
+<br>
+
+</body>
 </html>
