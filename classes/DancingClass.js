@@ -73,10 +73,6 @@ function showAllClasses() {
         document.getElementById("body").appendChild(paraDuration);
 
         var paraParticipants = document.createElement("P");
-        /*var textParticipants= document.createTextNode("Deltagere " + allClasses[n].participants);
-        paraParticipants.appendChild(textParticipants);
-        document.getElementById("body").appendChild(paraParticipants);*/
-
         var text = "Deltagere: ";
         for (var i=0; i < allClasses[n].participants.length; i++){
             if(i+1 === allClasses[n].participants.length){
@@ -89,9 +85,24 @@ function showAllClasses() {
         paraParticipants.appendChild(textParticipants);
         document.getElementById("body").appendChild(paraParticipants);
 
+        var subButton = document.createElement("input");
+        subButton.setAttribute("id","subButton");
+        subButton.setAttribute("value", "Tilmeld");
+        subButton.setAttribute("type", "Submit");
+        subButton.setAttribute("onclick","subscribeClass()");
+        document.getElementById("body").appendChild(subButton);
+
+        var unsubButton = document.createElement("input");
+        unsubButton.setAttribute("id","unsubButton");
+        unsubButton.setAttribute("value", "Afmeld");
+        unsubButton.setAttribute("type", "Submit");
+        unsubButton.setAttribute("onclick","unsubscribeClass()");
+        document.getElementById("body").appendChild(unsubButton);
 
         var lineBreak = document.createElement("br");
         document.getElementById("body").appendChild(lineBreak);
+        var lineBreak2 = document.createElement("br");
+        document.getElementById("body").appendChild(lineBreak2);
     }
     storeClasses();
 }
