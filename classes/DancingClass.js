@@ -86,17 +86,18 @@ function showAllClasses() {
         document.getElementById("body").appendChild(paraParticipants);
 
         var subButton = document.createElement("input");
-        subButton.setAttribute("id","subButton");
+        subButton.setAttribute("id", allClasses[n].title + " tilmeld");
         subButton.setAttribute("value", "Tilmeld");
         subButton.setAttribute("type", "Submit");
-        subButton.setAttribute("onclick","subscribeClass()");
+        subButton.setAttribute("onclick","subscribeClass(this.id)");
         document.getElementById("body").appendChild(subButton);
 
         var unsubButton = document.createElement("input");
-        unsubButton.setAttribute("id","unsubButton");
+        unsubButton.setAttribute("id", allClasses[n].title + " afmeld");
         unsubButton.setAttribute("value", "Afmeld");
         unsubButton.setAttribute("type", "Submit");
-        unsubButton.setAttribute("onclick","unsubscribeClass()");
+        unsubButton.setAttribute("onclick","unsubscribeClass(this.id)");
+
         document.getElementById("body").appendChild(unsubButton);
 
         var lineBreak = document.createElement("br");
