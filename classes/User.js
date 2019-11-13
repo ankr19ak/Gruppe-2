@@ -120,7 +120,7 @@ function getUserGender() {
         }
         return userGender;
 }
-
+//Laver en for loop som kører igennem hele user-arrayet indtil den finder den user som er blevet logget ind.
 function storeLoggedInUser(){
         unpackUsers();
         var loggedInUser;
@@ -132,11 +132,11 @@ function storeLoggedInUser(){
         sessionStorage.setItem("loggedInUser",JSON.stringify(loggedInUser));
         storeUsers();
 }
-
+//Henter user fra storage vha. parse.
 function unpackLoggedInUser(){
         var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
 }
-
+//Sletter alle users der er logget ind fra session storage.
 function logOutUser(){
     sessionStorage.clear();
     window.location.href = "Login.html";

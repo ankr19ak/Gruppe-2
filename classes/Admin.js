@@ -42,7 +42,7 @@ function storeLoggedInAdmin(){
 function unpackLoggedInAdmin(){
    var loggedInAdmin = JSON.parse(sessionStorage.getItem("loggedInAdmin"));
 }
-
+//Sletter oplysningerne der er blevet stored i sessionstorage.
 function logOutAdmin(){
     sessionStorage.clear();
     window.location.href = "Login.html";
