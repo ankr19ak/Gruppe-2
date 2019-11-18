@@ -146,7 +146,8 @@ function unpackClasses() {
                         birthYear: 1997,
                         gender: "Male",
                         phoneNumber: 61795436,
-                        email: "Emilie@dans.dk"
+                        email: "Emilie@dans.dk",
+                        classes: []
                     },
                     {
                         username: "AndreasWK",
@@ -155,7 +156,8 @@ function unpackClasses() {
                         birthYear: 1997,
                         gender: "Male",
                         phoneNumber: 61795436,
-                        email: "Emilie@dans.dk"
+                        email: "Emilie@dans.dk",
+                        classes: []
                     }
                 ]
             },

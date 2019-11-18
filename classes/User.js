@@ -1,6 +1,6 @@
 //En klasse med username og password
 class User {
-    constructor(username, password, name, birthYear, gender, phoneNumber, email) {
+    constructor(username, password, name, birthYear, gender, phoneNumber, email, classes) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -8,6 +8,7 @@ class User {
         this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.classes = [];
     }
 }
 
@@ -29,7 +30,8 @@ class User {
                 document.getElementById("birthYear").value,
                 getUserGender(),
                 document.getElementById("phoneNumber").value,
-                document.getElementById("email").value
+                document.getElementById("email").value,
+                []
 
 
             );
