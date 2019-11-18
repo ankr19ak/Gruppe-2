@@ -37,7 +37,7 @@ class User {
             storeUsers();
             console.log(localStorage);
             alert("New user has been created.");
-        } else {
+        } else if(!checkAvailability()) {
             alert("Username is already taken.")
         }
     }
@@ -126,19 +126,49 @@ function storeLoggedInUser(){
         var loggedInUser;
         for(var n = 0; n<allUsers.length; n++){
             if(document.getElementById("enteredName").value === allUsers[n].username) {
-                var loggedInUser = allUsers[n];
+                loggedInUser = allUsers[n];
             }
         }
-
-        sessionStorage.setItem("loggedInUser",JSON.stringify(allUsers[0]));
+        sessionStorage.setItem("loggedInUser",JSON.stringify(loggedInUser));
         storeUsers();
 }
 //Henter user fra storage vha. parse.
 function unpackLoggedInUser(){
-        var loggedInUser=JSON.parse(sessionStorage.getItem("loggedInUser"));
+        var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
 }
 //Sletter alle users der er logget ind fra session storage.
 function logOutUser(){
     sessionStorage.clear();
     window.location.href = "Login.html";
+}
+
+function subscribeClass(id){
+    var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+    var allClasses = JSON.parse(localStorage.getItem("allClasses"));
+
+    for(var n = 0; n < allClasses.length; n++){
+        if(id.replace(" tilmeld","") === allClasses[n].title){
+            allClasses[n].participants.push(loggedInUser);
+        }
+    }
+    localStorage.setItem("allClasses", JSON.stringify(allClasses));
+    window.location.reload();
+}
+
+function unsubscribeClass(id){
+    var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+    var allClasses = JSON.parse(localStorage.getItem("allClasses"));
+
+    for(var n = 0; n < allClasses.length; n++){
+        if(id.replace(" afmeld","") === allClasses[n].title){
+            for(var i = 0; i < allClasses[n].participants.length; i++) {
+                if(allClasses[n].participants[i].username === loggedInUser.username){
+                    allClasses[n].participants.splice(i,1);
+                }
+            }
+        }
+    }
+    localStorage.setItem("allClasses", JSON.stringify(allClasses));
+    document.getElementById(id).style.visibility = "hidden";
+    window.location.reload();
 }
