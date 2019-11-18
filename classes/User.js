@@ -149,18 +149,23 @@ function subscribeClass(id){
     var allClasses = JSON.parse(localStorage.getItem("allClasses"));
     var allUsers = JSON.parse(localStorage.getItem("allUsers"));
 
-    for(var n = 0; n < allClasses.length; n++) {
-        if (id.replace(" tilmeld", "") === allClasses[n].title) {
-            allClasses[n].participants.push(loggedInUser);
+    if(!isSubbed(id)) {
+        for(var n = 0; n < allClasses.length; n++) {
+            if(id.replace(" tilmeld", "") === allClasses[n].title) {
+                allClasses[n].participants.push(loggedInUser);
 
-            for(var i = 0; i < allUsers.length; i++) {
-                if(loggedInUser.username === allUsers[i].username) {
-                    allUsers[i].classes.push(allClasses[n]);
-                    loggedInUser = allUsers[i];
+                for(var i = 0; i < allUsers.length; i++) {
+                    if(loggedInUser.username === allUsers[i].username) {
+                        allUsers[i].classes.push(allClasses[n]);
+                        loggedInUser = allUsers[i];
+                    }
                 }
             }
         }
+    } else {
+        alert("You are already signed up for this class");
     }
+
     localStorage.setItem("allClasses", JSON.stringify(allClasses));
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
     sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
@@ -197,4 +202,19 @@ function unsubscribeClass(id) {
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
     sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
     window.location.reload();
+}
+
+function isSubbed(id) {
+    var allClasses = JSON.parse(localStorage.getItem("allClasses"));
+    var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+    for(var n = 0; n < allClasses.length; n++) {
+        if(id.replace(" tilmeld", "") === allClasses[n].title) {
+            for(var i = 0; i < allClasses[n].participants.length; i++) {
+                if (allClasses[n].participants[i].username === loggedInUser.username) {
+                    return true;
+                }
+            }
+        }
+    }
 }
