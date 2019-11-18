@@ -1,6 +1,6 @@
 //En klasse med username og password
 class User {
-    constructor(username, password, name, birthYear, gender, phoneNumber, email, classes) {
+    constructor(username, password, name, birthYear, gender, phoneNumber, email) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -147,30 +147,58 @@ function logOutUser(){
 function subscribeClass(id){
     var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
     var allClasses = JSON.parse(localStorage.getItem("allClasses"));
+    var allUsers = JSON.parse(localStorage.getItem("allUsers"));
 
-    for(var n = 0; n < allClasses.length; n++){
-        if(id.replace(" tilmeld","") === allClasses[n].title){
+    for(var n = 0; n < allClasses.length; n++) {
+        if (id.replace(" tilmeld", "") === allClasses[n].title) {
             allClasses[n].participants.push(loggedInUser);
-        }
-    }
-    localStorage.setItem("allClasses", JSON.stringify(allClasses));
-    window.location.reload();
-}
 
-function unsubscribeClass(id){
-    var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
-    var allClasses = JSON.parse(localStorage.getItem("allClasses"));
-
-    for(var n = 0; n < allClasses.length; n++){
-        if(id.replace(" afmeld","") === allClasses[n].title){
-            for(var i = 0; i < allClasses[n].participants.length; i++) {
-                if(allClasses[n].participants[i].username === loggedInUser.username){
-                    allClasses[n].participants.splice(i,1);
+            for(var i = 0; i < allUsers.length; i++) {
+                if(loggedInUser.username === allUsers[i].username) {
+                    allUsers[i].classes.push(allClasses[n]);
+                    loggedInUser = allUsers[i];
                 }
             }
         }
     }
     localStorage.setItem("allClasses", JSON.stringify(allClasses));
-    document.getElementById(id).style.visibility = "hidden";
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+    window.location.reload();
+}
+
+function unsubscribeClass(id) {
+    var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+    var allClasses = JSON.parse(localStorage.getItem("allClasses"));
+    var allUsers = JSON.parse(localStorage.getItem("allUsers"));
+
+    for(var n = 0; n < allClasses.length; n++) {
+        if(id.replace(" afmeld", "") === allClasses[n].title) {
+            for(var i = 0; i < allClasses[n].participants.length; i++) {
+                if(allClasses[n].participants[i].username === loggedInUser.username) {
+                    allClasses[n].participants.splice(i, 1);
+
+                    for(var j = 0; j < allUsers.length; j++) {
+                        console.log("hej2");
+                        if(allUsers[j].username === loggedInUser.username) {
+                            console.log("hej3");
+
+                            for(var h = 0; h < allUsers[j].classes.length; h++) {
+                                console.log("hej4");
+                                if(allUsers[j].classes[h].title === allClasses[n].title) {
+                                    allUsers[j].classes.splice(h, 1);
+                                    loggedInUser = allUsers[j];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    localStorage.setItem("allClasses", JSON.stringify(allClasses));
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
     window.location.reload();
 }
