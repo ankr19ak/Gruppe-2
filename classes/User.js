@@ -179,12 +179,8 @@ function unsubscribeClass(id) {
                     allClasses[n].participants.splice(i, 1);
 
                     for(var j = 0; j < allUsers.length; j++) {
-                        console.log("hej2");
                         if(allUsers[j].username === loggedInUser.username) {
-                            console.log("hej3");
-
                             for(var h = 0; h < allUsers[j].classes.length; h++) {
-                                console.log("hej4");
                                 if(allUsers[j].classes[h].title === allClasses[n].title) {
                                     allUsers[j].classes.splice(h, 1);
                                     loggedInUser = allUsers[j];
