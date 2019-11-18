@@ -1,8 +1,11 @@
 //Klassen undervisningstimer erklæres via en constructor funktion
 class DancingClass {
-    constructor(title, location, room, teacher, durationHours, durationMinutes){
+    constructor(title, location, date, month, year, room, teacher, durationHours, durationMinutes){
         this.title = title;
         this.location = location;
+        this.date = date;
+        this.month = month;
+        this.year = year;
         this.room = room;
         this.teacher = teacher;
         this.durationHours = durationHours;
@@ -28,6 +31,9 @@ function createDancingClass() {
         let dancingClass = new DancingClass(
             document.getElementById("title").value,
             document.getElementById("location").value,
+            document.getElementById("date").value,
+            document.getElementById("month").value,
+            document.getElementById("year").value,
             document.getElementById("room").value,
             document.getElementById("teacher").value,
             document.getElementById("duration hours").value,
@@ -56,6 +62,11 @@ function showAllClasses() {
         var textSted = document.createTextNode("Sted: " + allClasses[n].location);
         paraSted.appendChild(textSted);
         document.getElementById("body").append(paraSted);
+
+        var paraDato = document.createElement("P");
+        var textDato = document.createTextNode("Dato: " + allClasses[n].date + "/" + allClasses[n].month + "/" + allClasses[n].year);
+        paraDato.appendChild(textDato);
+        document.getElementById("body").append(paraDato);
 
         var paraRoom = document.createElement("P");
         var textRoom = document.createTextNode("Lokale: " + allClasses[n].room);
@@ -119,6 +130,9 @@ function unpackClasses() {
             {
                 title: "Undervisningstime 1",
                 location: "Solbjerg Plads 15",
+                date:"10",
+                month: "11",
+                year:"2019",
                 room: 156,
                 teacher: "Jan Jensen",
                 durationHours: 1,
@@ -147,6 +161,9 @@ function unpackClasses() {
             {
                 title: "Undervisningstime 2",
                 location: "Dalgas Have 3",
+                date:"10",
+                month: "11",
+                year:"2019",
                 room: 254,
                 teacher: "Erik Eriksen",
                 durationHours: 0,
@@ -156,6 +173,9 @@ function unpackClasses() {
             {
                 title: "Undervisningtime 3",
                 location: "Peter Bangs Vej 20",
+                date:"10",
+                month: "11",
+                year:"2019",
                 room: 10,
                 teacher: "Peter Petersen",
                 durationHours: 2,
