@@ -96,15 +96,18 @@ function showAllClasses() {
         paraParticipants.appendChild(textParticipants);
         document.getElementById("body").appendChild(paraParticipants);
 
-        var subButton = document.createElement("input");
-        subButton.setAttribute("id", allClasses[n].title + " tilmeld");
-        subButton.setAttribute("value", "Tilmeld");
-        subButton.setAttribute("type", "Submit");
-        subButton.setAttribute("onclick","subscribeClass(this.id)");
-        document.getElementById("body").appendChild(subButton);
+        if(window.location.pathname !== "/Gruppe-2/classSiteAdmin.html") {
+            var subButton = document.createElement("input");
+            subButton.setAttribute("id", allClasses[n].title + " tilmeld");
+            subButton.setAttribute("value", "Tilmeld");
+            subButton.setAttribute("type", "Submit");
+            subButton.setAttribute("onclick", "subscribeClass(this.id)");
+            document.getElementById("body").appendChild(subButton);
 
-        var lineBreak = document.createElement("br");
-        document.getElementById("body").appendChild(lineBreak);
+            var lineBreak = document.createElement("br");
+            document.getElementById("body").appendChild(lineBreak);
+        }
+
         var lineBreak2 = document.createElement("br");
         document.getElementById("body").appendChild(lineBreak2);
     }
