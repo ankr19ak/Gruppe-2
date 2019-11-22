@@ -218,3 +218,65 @@ function isSubbed(id) {
         }
     }
 }
+
+function showMyClasses() {
+    var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+    for (var n = 0; n < loggedInUser.classes.length; n++) {
+        var header = document.createElement("h2");
+        var headerText = document.createTextNode(loggedInUser.classes[n].title);
+        header.append(headerText);
+        document.getElementById("myClassesBody").append(header);
+
+        var paraSted = document.createElement("P");
+        var textSted = document.createTextNode("Sted: " + loggedInUser.classes[n].location);
+        paraSted.appendChild(textSted);
+        document.getElementById("myClassesBody").append(paraSted);
+
+        var paraDato = document.createElement("P");
+        var textDato = document.createTextNode("Dato: " + loggedInUser.classes[n].date + "/" + loggedInUser.classes[n].month + "/" + loggedInUser.classes[n].year);
+        paraDato.appendChild(textDato);
+        document.getElementById("myClassesBody").append(paraDato);
+
+        var paraRoom = document.createElement("P");
+        var textRoom = document.createTextNode("Lokale: " + loggedInUser.classes[n].room);
+        paraRoom.appendChild(textRoom);
+        document.getElementById("myClassesBody").appendChild(paraRoom);
+
+        var paraTeacher = document.createElement("P");
+        var textTeacher = document.createTextNode("Underviser: " + loggedInUser.classes[n].teacher);
+        paraTeacher.appendChild(textTeacher);
+        document.getElementById("myClassesBody").appendChild(paraTeacher);
+
+        var paraDuration = document.createElement("P");
+        var textDuration = document.createTextNode("Varighed: " + loggedInUser.classes[n].durationHours + " time(r) og " + loggedInUser.classes[n].durationMinutes + " minutte(r)");
+        paraDuration.appendChild(textDuration);
+        document.getElementById("myClassesBody").appendChild(paraDuration);
+
+        var paraParticipants = document.createElement("P");
+        var text = "Deltagere: ";
+        for (var i = 0; i < loggedInUser.classes[n].participants.length; i++) {
+            if (i + 1 === loggedInUser.classes[n].participants.length) {
+                text += loggedInUser.classes[n].participants[i].name;
+            } else {
+                text += loggedInUser.classes[n].participants[i].name + ", ";
+            }
+        }
+        var textParticipants = document.createTextNode(text);
+        paraParticipants.appendChild(textParticipants);
+        document.getElementById("myClassesBody").appendChild(paraParticipants);
+
+        var unsubButton = document.createElement("input");
+        unsubButton.setAttribute("id", loggedInUser.classes[n].title + " afmeld");
+        unsubButton.setAttribute("value", "Afmeld");
+        unsubButton.setAttribute("type", "Submit");
+        unsubButton.setAttribute("onclick", "unsubscribeClass(this.id)");
+
+        document.getElementById("myClassesBody").appendChild(unsubButton);
+
+        var lineBreak = document.createElement("br");
+        document.getElementById("myClassesBody").appendChild(lineBreak);
+        var lineBreak2 = document.createElement("br");
+        document.getElementById("myClassesBody").appendChild(lineBreak2);
+    }
+}

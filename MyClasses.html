@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <div style="" class="topnav">
         <a href="MyPageUser.html">My Page</a>
-        <a href="MyClasses.html">Mine Undervisningstimer</a>
-        <a class="active" href="classSiteUser.html">Alle Undervisningstimer</a>
+        <a class="active" href="MyClasses.html">Mine Undervisningstimer</a>
+        <a href="classSiteUser.html">Alle Undervisningstimer</a>
         <a class="navLogOut" onclick="logOutUser()">Log Out</a>
-     </div>
-    <h1 id="h1">Undervisningstimer</h1>
+    </div>
+    <h1 id="h1">Mine Undervisningstimer</h1>
 
     <!--Skal have henvisning så den henter "title" fra js. filen.-->
-    </head>
+</head>
 
 <style>
     /* Her har vi lavet en navigationslinje/bar ved hjælp af eksemplet i denne kilde: https://www.w3schools.com/howto/howto_js_topnav.asp
@@ -50,7 +50,7 @@
 
 <br>
 
-<body id="body" onload="showAllClasses()">
+<body id="myClassesBody" onload="showMyClasses()">
 </body>
 
 <script src="classes/DancingClass.js"></script>

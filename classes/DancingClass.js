@@ -103,14 +103,6 @@ function showAllClasses() {
         subButton.setAttribute("onclick","subscribeClass(this.id)");
         document.getElementById("body").appendChild(subButton);
 
-        var unsubButton = document.createElement("input");
-        unsubButton.setAttribute("id", allClasses[n].title + " afmeld");
-        unsubButton.setAttribute("value", "Afmeld");
-        unsubButton.setAttribute("type", "Submit");
-        unsubButton.setAttribute("onclick","unsubscribeClass(this.id)");
-
-        document.getElementById("body").appendChild(unsubButton);
-
         var lineBreak = document.createElement("br");
         document.getElementById("body").appendChild(lineBreak);
         var lineBreak2 = document.createElement("br");
