@@ -1,8 +1,9 @@
 //Klassen undervisningstimer erklæres via en constructor funktion
 class DancingClass {
-    constructor(title, location, date, month, year, room, teacher, durationHours, durationMinutes){
+    constructor(title, location, time, date, month, year, room, teacher, durationHours, durationMinutes){
         this.title = title;
         this.location = location;
+        this.time = time;
         this.date = date;
         this.month = month;
         this.year = year;
@@ -31,6 +32,7 @@ function createDancingClass() {
         let dancingClass = new DancingClass(
             document.getElementById("title").value,
             document.getElementById("location").value,
+            document.getElementById("time").value,
             document.getElementById("date").value,
             document.getElementById("month").value,
             document.getElementById("year").value,
@@ -67,6 +69,11 @@ function showAllClasses() {
         var textDato = document.createTextNode("Dato: " + allClasses[n].date + "/" + allClasses[n].month + "/" + allClasses[n].year);
         paraDato.appendChild(textDato);
         document.getElementById("body").append(paraDato);
+
+        var paraTid = document.createElement("P");
+        var textTid = document.createTextNode("Tidspunkt: kl. " + allClasses[n].time);
+        paraTid.appendChild(textTid);
+        document.getElementById("body").append(paraTid);
 
         var paraRoom = document.createElement("P");
         var textRoom = document.createTextNode("Lokale: " + allClasses[n].room);
@@ -126,6 +133,7 @@ function unpackClasses() {
             {
                 title: "Undervisningstime 1",
                 location: "Solbjerg Plads 15",
+                time: "17.00",
                 date:"10",
                 month: "11",
                 year:"2019",
@@ -159,6 +167,7 @@ function unpackClasses() {
             {
                 title: "Undervisningstime 2",
                 location: "Dalgas Have 3",
+                time: "17.30",
                 date:"10",
                 month: "11",
                 year:"2019",
@@ -171,6 +180,7 @@ function unpackClasses() {
             {
                 title: "Undervisningtime 3",
                 location: "Peter Bangs Vej 20",
+                time: "18.00",
                 date:"10",
                 month: "11",
                 year:"2019",

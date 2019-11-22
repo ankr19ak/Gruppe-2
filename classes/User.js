@@ -238,6 +238,11 @@ function showMyClasses() {
         paraDato.appendChild(textDato);
         document.getElementById("myClassesBody").append(paraDato);
 
+        var paraTid = document.createElement("P");
+        var textTid = document.createTextNode("Tidspunkt: kl. " + allClasses[n].time);
+        paraTid.appendChild(textTid);
+        document.getElementById("myClassesBody").append(paraTid);
+
         var paraRoom = document.createElement("P");
         var textRoom = document.createTextNode("Lokale: " + loggedInUser.classes[n].room);
         paraRoom.appendChild(textRoom);
