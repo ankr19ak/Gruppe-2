@@ -280,3 +280,14 @@ function showMyClasses() {
         document.getElementById("myClassesBody").appendChild(lineBreak2);
     }
 }
+
+function showMyPageInfo() {
+    var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+        document.getElementById("navn").innerHTML = "Navn: " + loggedInUser.name;
+        document.getElementById("fødselsÅr").innerHTML = "Årgang: " + loggedInUser.birthYear;
+        document.getElementById("køn").innerHTML = "Køn :" + loggedInUser.gender;
+        document.getElementById("telefonNr").innerHTML = "Telefon nummer: " + loggedInUser.phoneNumber;
+        document.getElementById("email").innerHTML =  "Email: " + loggedInUser.email;
+
+}
