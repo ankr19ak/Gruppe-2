@@ -154,7 +154,9 @@ function logOutUser(){
     sessionStorage.clear();
     window.location.href = "Login.html";
 }
-
+// En funktion som tilmelder useren den valgte dansetime
+// Først gemmer den tre variabler i fra locale storage
+//
 function subscribeClass(id){
     var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
     var allClasses = JSON.parse(localStorage.getItem("allClasses"));
