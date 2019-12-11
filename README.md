@@ -26,50 +26,6 @@ undervisningstimer er gjort simpelt og overskueligt for kunden, samt nemt for da
 Dertil vil platformen også give ejerne en fordelagtig indsigt i og omkring den enkelte kunde. Set fra kundernes perspektiv,
 vil de få et godt overblik over deres undervisningstimer samt de enkelte hold. 
 
-## Kravspecifikationer & Use Cases
-
-De enkelte elementer vi skal have med i projektet og hvad man skal kunne gøre i disse elementer som kunde og administrator.
-
-**Kunde:**
-
-    a. Kunden opretter en bruger
-  
-    b. Kunden kan herefter logge ind
-  
-    c. Kunden vil have mulighed for at slette sin bruger igen
-  
-    d. Kunden klikker sig ind på en danseskole, for herefter at kunne se tidspunkter/sted, samt 
-       varighed for undervisningstimer
-  
-    e. Kunden kan se underviseren og antallet af deltagere for den enkelte undervisningstime
-  
-    f. Kunden vælger en undervisningstime
-  
-    g. Kunden har herefter mulighed for at booke tid til en undervisningstime
-  
-    h. Kunden kan afmelde sig fra en undervisningstime
-  
-    i. Kunden kan se tilmeldte undervisningstimer
-  
-    j. Når kunden er færdig logger vedkommende sig ud af systemet igen
- 
-**Administrator:**
-
-    a. Administrator logger ind på administratorside. 
-    
-    b. Administratoren skal her kunne oprette undervisningstimer.
-    
-    c. Administratoren skal kunne oprette antal ledige pladser. 
-    
-    d. Administratoren skal kunne redigere i den enkelte undervisningstime.
-    
-    e. Administratoren skal kunne fjerne undervisningstimer.
-    
-    f. Administratoren skal kunne se tilmeldte til de enkelte undervisningstimer.
-    
-    g. Administratoren skal kunne se hvilke typer (køn og alder) der har tilmeldt sig.
-    
-    h. Administratoren logger ud når de ønskede ændringer er blevet gennemført.
 
 ## List of Requirements
 
