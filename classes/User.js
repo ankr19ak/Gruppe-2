@@ -255,6 +255,7 @@ function showMyClasses() {
 
         var paraParticipants = document.createElement("P");
         var text = "Deltagere: ";
+        //If statement indsætter et navn, else statement indsætter en mellemrum. Hver gang der indsættes en ny deltager, sættes der en mellem rum og en komma. Den bliver ved med det indstille den rammer det antal deltager der er i alt.
         for (var i = 0; i < loggedInUser.classes[n].participants.length; i++) {
             if (i + 1 === loggedInUser.classes[n].participants.length) {
                 text += loggedInUser.classes[n].participants[i].name;
