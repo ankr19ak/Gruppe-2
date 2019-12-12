@@ -1,4 +1,6 @@
 //En klasse med username og password
+//NL: Vi opretter klassen User og definerer klassens variable ved hjælp af en constructor der indeholder properties
+//der knytter sig til klassen User.
 class User {
     constructor(username, password, name, birthYear, gender, phoneNumber, email) {
         this.username = username;
@@ -57,6 +59,9 @@ function userLogin(){
 }
 
 // Gemmer alle brugere som et array i localStorage
+//NL: Her laves en funktion der gemmer alle brugere som et array i localStorage. LocalStorage benyttes for at beholde
+//NL: brugerinformationerne når siden opdateres. Dertil bruges JSON.stringify til at konvertere dataen, da den tager
+//NL: værdien "allUsers" og returnerer en string i localStorage.
 function storeUsers() {
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
 }
@@ -71,6 +76,9 @@ function unpackUsers() {
 }
 
 // Tjekker om email-input indeholder et @ og dermed ligner en email
+//NL:Her laves en funktion der via et if-statement tjekker om det indtastede input ligner en mail, hvorfor den udløser en
+//NL:en alert-funktion, alt efter om de givne krav overholdes. For at gøre det nemmere at finde en specifik node, har vi benyttet attributten
+//NL:"email" og tag navnet ".getElementById".
 function checkAtSign(){
         if(document.getElementById("email").value.includes("@")) {
             return true;
@@ -79,6 +87,9 @@ function checkAtSign(){
 }
 
 // En funktion som tjekker om password er mindst 5 cifre
+//NL:Her er der lavet en funktion der via ".getElementById" benytter den unikke attribut "password" og funktionen value.length
+//NL:til at specificere og tjekke om det indtastede password indeholder mindst 5 cifre. Hvis "password" ikke udfyldes korrekt
+//NL:aktiveres if-else statementet og der udskrives en alert-boks, der specificerer kravet for udfyldelse af feltet "password".
 function checkPassNum() {
     if(document.getElementById("password").value.length >= 5) {
         return true;
@@ -94,7 +105,7 @@ function checkNumberLength() {
     else alert("Not a real phone number. Please try again.");
 }
 
-// Tjekker om Username allerede er i brug
+//Funktionen her tjekkes om brugernavnet allerede er i brug
 function checkAvailability(){
         return !allUsers.some(user => user.username == document.getElementById("username").value);
 }
@@ -143,7 +154,9 @@ function logOutUser(){
     sessionStorage.clear();
     window.location.href = "Login.html";
 }
-
+// En funktion som tilmelder useren den valgte dansetime
+// Først gemmer den tre variabler i fra locale storage
+//
 function subscribeClass(id){
     var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
     var allClasses = JSON.parse(localStorage.getItem("allClasses"));
@@ -238,6 +251,11 @@ function showMyClasses() {
         paraDato.appendChild(textDato);
         document.getElementById("myClassesBody").append(paraDato);
 
+        var paraTid = document.createElement("P");
+        var textTid = document.createTextNode("Tidspunkt: kl. " + allClasses[n].time);
+        paraTid.appendChild(textTid);
+        document.getElementById("myClassesBody").append(paraTid);
+
         var paraRoom = document.createElement("P");
         var textRoom = document.createTextNode("Lokale: " + loggedInUser.classes[n].room);
         paraRoom.appendChild(textRoom);
@@ -280,4 +298,15 @@ function showMyClasses() {
         var lineBreak2 = document.createElement("br");
         document.getElementById("myClassesBody").appendChild(lineBreak2);
     }
+}
+
+function showMyPageInfo() {
+    var loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+        document.getElementById("navn").innerHTML = "Navn: " + loggedInUser.name;
+        document.getElementById("fødselsÅr").innerHTML = "Årgang: " + loggedInUser.birthYear;
+        document.getElementById("køn").innerHTML = "Køn: " + loggedInUser.gender;
+        document.getElementById("telefonNr").innerHTML = "Telefon nummer: " + loggedInUser.phoneNumber;
+        document.getElementById("email").innerHTML =  "Email: " + loggedInUser.email;
+
 }

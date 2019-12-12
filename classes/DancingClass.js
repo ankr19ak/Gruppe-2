@@ -1,8 +1,9 @@
 //Klassen undervisningstimer erklæres via en constructor funktion
 class DancingClass {
-    constructor(title, location, date, month, year, room, teacher, durationHours, durationMinutes){
+    constructor(title, location, time, date, month, year, room, teacher, durationHours, durationMinutes){
         this.title = title;
         this.location = location;
+        this.time = time;
         this.date = date;
         this.month = month;
         this.year = year;
@@ -31,6 +32,7 @@ function createDancingClass() {
         let dancingClass = new DancingClass(
             document.getElementById("title").value,
             document.getElementById("location").value,
+            document.getElementById("time").value,
             document.getElementById("date").value,
             document.getElementById("month").value,
             document.getElementById("year").value,
@@ -68,6 +70,11 @@ function showAllClasses() {
         paraDato.appendChild(textDato);
         document.getElementById("body").append(paraDato);
 
+        var paraTid = document.createElement("P");
+        var textTid = document.createTextNode("Tidspunkt: kl. " + allClasses[n].time);
+        paraTid.appendChild(textTid);
+        document.getElementById("body").append(paraTid);
+
         var paraRoom = document.createElement("P");
         var textRoom = document.createTextNode("Lokale: " + allClasses[n].room);
         paraRoom.appendChild(textRoom);
@@ -96,15 +103,18 @@ function showAllClasses() {
         paraParticipants.appendChild(textParticipants);
         document.getElementById("body").appendChild(paraParticipants);
 
-        var subButton = document.createElement("input");
-        subButton.setAttribute("id", allClasses[n].title + " tilmeld");
-        subButton.setAttribute("value", "Tilmeld");
-        subButton.setAttribute("type", "Submit");
-        subButton.setAttribute("onclick","subscribeClass(this.id)");
-        document.getElementById("body").appendChild(subButton);
+        if(window.location.pathname !== "/Gruppe-2/classSiteAdmin.html") {
+            var subButton = document.createElement("input");
+            subButton.setAttribute("id", allClasses[n].title + " tilmeld");
+            subButton.setAttribute("value", "Tilmeld");
+            subButton.setAttribute("type", "Submit");
+            subButton.setAttribute("onclick", "subscribeClass(this.id)");
+            document.getElementById("body").appendChild(subButton);
 
-        var lineBreak = document.createElement("br");
-        document.getElementById("body").appendChild(lineBreak);
+            var lineBreak = document.createElement("br");
+            document.getElementById("body").appendChild(lineBreak);
+        }
+
         var lineBreak2 = document.createElement("br");
         document.getElementById("body").appendChild(lineBreak2);
     }
@@ -123,6 +133,7 @@ function unpackClasses() {
             {
                 title: "Undervisningstime 1",
                 location: "Solbjerg Plads 15",
+                time: "17.00",
                 date:"10",
                 month: "11",
                 year:"2019",
@@ -156,6 +167,7 @@ function unpackClasses() {
             {
                 title: "Undervisningstime 2",
                 location: "Dalgas Have 3",
+                time: "17.30",
                 date:"10",
                 month: "11",
                 year:"2019",
@@ -168,6 +180,7 @@ function unpackClasses() {
             {
                 title: "Undervisningtime 3",
                 location: "Peter Bangs Vej 20",
+                time: "18.00",
                 date:"10",
                 month: "11",
                 year:"2019",
